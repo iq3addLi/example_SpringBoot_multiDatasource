@@ -17,7 +17,6 @@ public class DataSourceImplRepository implements DataSourceRepository{
     }
 
     public DataSource getDataSource(){
-        return dataSources.get(0);
-        //return dataSources.get(DBContextHolder.getDbType().ordinal());
+        return dataSources.get(DBContextHolder.getDbType().ordinal());
     }
 }

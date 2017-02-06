@@ -19,12 +19,12 @@ public class PathFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
-        //HttpServletResponse response = (HttpServletResponse) res;
-        log.info("ContextPath=" + request.getContextPath() );
-        if ( request.getContextPath() == "/master" ){
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        log.info("path=" + path );
+        if ( path.startsWith( "/master") ){
             DBContextHolder.setDbType( DbType.MASTER );
         }
-        else if ( request.getContextPath() == "/second"){
+        else if ( path.startsWith( "/second" ) ){
             DBContextHolder.setDbType( DbType.SECOND );
         }
         else{

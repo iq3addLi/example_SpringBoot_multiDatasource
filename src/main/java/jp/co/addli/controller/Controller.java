@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Project:example_SpringBoot_multiDatasource Created by iq3 on 2017/02/06.
  */
 @RestController
+@RequestMapping(value = { "/master","/second" })
 public class Controller {
 
     @Autowired

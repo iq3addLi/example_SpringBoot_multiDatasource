@@ -1,0 +1,11 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/exam_multi1
+        username: root
+        password:
+        driverClassName: com.mysql.cj.jdbc.Driver
+    secondDataSource:
+        url: jdbc:mysql://localhost:3306/exam_multi2
+        username: root
+        password:
+        driverClassName: com.mysql.cj.jdbc.Driver

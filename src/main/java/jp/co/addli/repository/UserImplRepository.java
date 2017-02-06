@@ -11,7 +11,6 @@ import java.util.List;
  */
 public class UserImplRepository implements UserRepository {
 
-    private JdbcTemplate jdbcTemplate;
     private DataSourceRepository dataSourceRepo;
 
     public UserImplRepository(DataSourceRepository dataSource) {
@@ -19,13 +18,7 @@ public class UserImplRepository implements UserRepository {
     }
 
     private JdbcTemplate template(){
-        if ( jdbcTemplate == null ){
-            jdbcTemplate = new JdbcTemplate( dataSourceRepo.getDataSource() );
-        }else{
-            jdbcTemplate.setDataSource( dataSourceRepo.getDataSource() );
-        }
-
-        return jdbcTemplate;
+        return new JdbcTemplate( dataSourceRepo.getDataSource() );
     }
 
     public List<User> getUsers(){

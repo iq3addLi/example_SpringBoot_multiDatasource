@@ -28,7 +28,7 @@ public class PathFilter implements Filter {
             DBContextHolder.setDbType( DbType.SECOND );
         }
         else{
-            new ServletException("Unexpected context.");
+            throw new ServletException("Unexpected context.");
         }
         chain.doFilter(req, res);
     }

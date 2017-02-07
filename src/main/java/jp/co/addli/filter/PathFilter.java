@@ -19,11 +19,14 @@ public class PathFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        log.info("path=" + path );
-        if ( path.startsWith( "/master") ){
+        String[] paths = path.split("/");
+        if (paths.length < 1 ){ throw new ServletException("Unexpected request.");  }
+        String context = paths[1];
+        log.info("context=" + context );
+        if ( context.equals("master") ){
             DBContextHolder.setDbType( DbType.MASTER );
         }
-        else if ( path.startsWith( "/second" ) ){
+        else if ( context.equals("second") ){
             DBContextHolder.setDbType( DbType.SECOND );
         }
         else{

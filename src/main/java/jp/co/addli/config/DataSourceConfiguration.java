@@ -4,14 +4,12 @@ import jp.co.addli.repository.DataSourceImplRepository;
 import jp.co.addli.repository.DataSourceRepository;
 import jp.co.addli.repository.UserRepository;
 import jp.co.addli.repository.UserImplRepository;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;

@@ -6,20 +6,20 @@ package jp.co.addli.config;
 
 public class DBContextHolder {
 
-    private static final ThreadLocal<DbType> contextHolder = new ThreadLocal<DbType>();
+    private static final ThreadLocal<DBType> contextHolder = new ThreadLocal<DBType>();
 
-    public static void setDbType(DbType dbType) {
-        if(dbType == null){
+    public static void setDBType(DBType DBType) {
+        if(DBType == null){
             throw new NullPointerException();
         }
-        contextHolder.set(dbType);
+        contextHolder.set(DBType);
     }
 
-    public static DbType getDbType() {
-        return (DbType) contextHolder.get();
+    public static DBType getDBType() {
+        return (DBType) contextHolder.get();
     }
 
-    public static void clearDbType() {
+    public static void clearDBType() {
         contextHolder.remove();
     }
 }

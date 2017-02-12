@@ -1,7 +1,7 @@
 package jp.co.addli.filter;
 
 import jp.co.addli.config.DBContextHolder;
-import jp.co.addli.config.DbType;
+import jp.co.addli.config.DBType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -24,10 +24,10 @@ public class PathFilter implements Filter {
         String context = paths[1];
         log.info("context=" + context );
         if ( context.equals("master") ){
-            DBContextHolder.setDbType( DbType.MASTER );
+            DBContextHolder.setDBType( DBType.MASTER );
         }
         else if ( context.equals("second") ){
-            DBContextHolder.setDbType( DbType.SECOND );
+            DBContextHolder.setDBType( DBType.SECOND );
         }
         else{
             throw new ServletException("Unexpected context.");
